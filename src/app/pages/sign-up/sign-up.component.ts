@@ -47,6 +47,8 @@ export class SignUpComponent {
       cidade: '',
     }
   };
+  isLoading: boolean = false;  // Controla o estado de carregamento
+
 
   constructor(private service: serviceSignUp) { }
 
@@ -67,6 +69,7 @@ export class SignUpComponent {
     console.log("SUBMIT")
     if(this.cadastroForm.valid){
       console.log("VALIDO")
+      this.isLoading = true
       this.user = {
         nome: this.cadastroForm.value.nome + " " + this.cadastroForm.value.sobrenome,
         senha: this.cadastroForm.value.senha || "",
@@ -82,7 +85,7 @@ export class SignUpComponent {
       };
       console.log('Dados enviados:', this.user);
       this.service.createUser(this.user).subscribe({
-        next: (response) => console.log('Usuário criado com sucesso:', response),
+        next: (response) => {console.log('Usuário criado com sucesso:', response), this.isLoading=false} ,
         error: (err) => console.error('Erro na criação do usuário:', err),
       });
     }else{
