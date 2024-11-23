@@ -4,11 +4,9 @@ import { Observable } from 'rxjs';
 import { stateViewModel } from '../view-models/state-vm';
 import { cityViewModel } from '../view-models/city-vm';
 import { adressViewModel } from '../view-models/adress-vm';
-
-
 import { responseStateViewModel } from '../view-models/response-state-vm';
 import { responseCityViewModel } from '../view-models/response-city-vm';
-
+import { UserViewModel } from '../view-models/user-vm';
 import { map } from 'rxjs/operators';
 import { responseAdressViewModel } from '../view-models/response-adress-vm';
 @Injectable({
@@ -17,9 +15,10 @@ import { responseAdressViewModel } from '../view-models/response-adress-vm';
 export class serviceSignUp{
     private ibgeUrl = 'https://servicodados.ibge.gov.br/api/v1'; 
     private viacepUrl = 'https://viacep.com.br/ws/'
+    private acheiAquiApi = 'https://api-achei-aqui-default.onrender.com'
     
     constructor(private http: HttpClient) {
-
+    
     }
 
     getStates(): Observable<stateViewModel[]> {
@@ -62,6 +61,10 @@ export class serviceSignUp{
           );
       
     }
-
-
+    createUser(user: UserViewModel): Observable<string> {
+        return this.http.post<string>(`${this.acheiAquiApi}/achados/create_user`, user, {
+          headers: { 'Content-Type': 'application/json' }, // Garante que os dados enviados sejam JSON
+          responseType: 'text' as 'json', // Configura para aceitar resposta como texto
+        });
+    }
 }

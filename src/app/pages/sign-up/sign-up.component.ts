@@ -5,6 +5,7 @@ import { stateViewModel } from './view-models/state-vm';
 import { cityViewModel } from './view-models/city-vm';
 import { adressViewModel } from './view-models/adress-vm';
 import { switchMap } from 'rxjs/operators';
+import { UserViewModel } from './view-models/user-vm';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -29,6 +30,19 @@ export class SignUpComponent {
   states:stateViewModel[] = []
   cities:cityViewModel[] = []
   adress:adressViewModel = {city:"", district:"", state:"", street:""}
+  user: UserViewModel = {
+    nome: '',
+    senha: '',
+    email: '',
+    telefone: '',
+    endereco: {
+      estado: '',
+      cep: '',
+      bairro: '',
+      rua: '',
+      cidade: '',
+    }
+  };
 
   constructor(private service: serviceSignUp) { }
 
@@ -46,8 +60,25 @@ export class SignUpComponent {
   }
 
   onSubmit(){
-    console.log("AAD")
-
+    console.log("SUBMIT")
+    this.user = {
+      nome: this.cadastroForm.value.nome + " " + this.cadastroForm.value.sobrenome,
+      senha: this.cadastroForm.value.senha || "",
+      email: this.cadastroForm.value.email || "",
+      telefone: this.cadastroForm.value.telefone || "",
+      endereco: {
+        estado: this.cadastroForm.value.uf || "",
+        cep: this.cadastroForm.value.cep || "",
+        bairro: this.cadastroForm.value.bairro || "",
+        rua: this.cadastroForm.value.rua || "",
+        cidade: this.cadastroForm.value.cidade || "",
+      },
+    };
+    console.log('Dados enviados:', this.user);
+    this.service.createUser(this.user).subscribe({
+      next: (response) => console.log('Usuário criado com sucesso:', response),
+      error: (err) => console.error('Erro na criação do usuário:', err),
+    });
   }
   onBlurCEP(){
     console.log("CEP DIGITADO")
