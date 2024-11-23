@@ -1,0 +1,79 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
+
+<div id="background-sign-up-form">
+     
+        <div id="container-sign-up"> 
+            <div class="titles-direction">
+                <h1 id="sign-in-title">Cadastro</h1>
+                <h3 class="extra-light" id="sign-in-subtitle">Seja Bem-Vindo</h3>
+            </div>
+            <form class="form-direction" [formGroup]="cadastroForm">
+                <div class="informations-columns">
+                    <div class="informations-direction">
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">Nome</label>
+                            <input type="text" name="" id="" formControlName="nome" placeholder="Insira o seu nome">
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">Sobrenome</label>
+                            <input type="text" name="" formControlName="sobrenome" id="" placeholder="Insira o seu e-mail">
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">E-mail</label>
+                            <input type="email" name="" formControlName="email" id="" placeholder="Insira o seu e-mail">
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">Telefone</label>
+                            <input type="text" name="" telImask formControlName="telefone" id="" placeholder="Insira o seu telefone">
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">Senha</label>
+                            <input type="password" name="" formControlName="senha" id="" placeholder="Crie uma senha">
+                        </div>
+                    </div>
+                    <div class="informations-direction">
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">CEP</label>
+                            <input type="text" class="CEP-input" cepImask formControlName="cep" name="" id="" placeholder="01234-567" (blur)="onBlurCEP()">
+                        </div>
+                      
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">UF</label>
+
+                            <select class="extra-light" id="sign-in-label" (change)="onSelectCityChange($event)" formControlName="uf">
+                                <option value="" disabled selected hidden>Selecione</option>
+                                <option *ngFor="let state of states" value="{{state.value}}">{{state.view}}</option>
+                            </select>
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label" >Cidade</label>
+                            <select class="extra-light" id="sign-in-label"  formControlName="cidade">
+                                <option value="" disabled selected hidden>Selecione</option>
+                                <option  *ngFor="let city of cities" value="{{city.value}}">{{city.value}}</option>
+                            </select>                        
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">Bairro</label>
+                            <input type="text" name="" id="" formControlName="bairro" placeholder="Insira o nome do seu bairro">
+                        </div>
+                        <div class="label-direction">
+                            <label class="extra-light" id="sign-in-label">Rua</label>
+                            <input type="text" name="" id="" formControlName="rua" placeholder="Insira o nome da sua rua">
+                        </div>
+
+                        
+                    </div>
+                    
+                </div>
+                <div id="submit-position">
+                    <p routerLink="">Já possui conta? Faça o log-in</p>
+                    <button id="submit-input" (click)="onSubmit()">Cadastrar</button>
+                </div>
+
+            </form>
+           
+        </div>
+
+        <img id ="sign-up-background"src="sign-up-background.png" alt="">
+       
+</div>
