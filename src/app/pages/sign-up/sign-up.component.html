@@ -29,6 +29,8 @@
                         <div class="label-direction">
                             <label class="extra-light" id="sign-in-label">Senha</label>
                             <input type="password" name="" formControlName="senha" id="" placeholder="Crie uma senha">
+                            <p *ngIf="!passwordIsValid" id="passwordIncorrectMessage">A Senha deve conter de 8 a 15 caracteres, números e pelo menos uma letra maiúscula e minúscula</p>
+
                         </div>
                     </div>
                     <div class="informations-direction">
