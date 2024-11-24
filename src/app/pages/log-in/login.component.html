@@ -8,20 +8,23 @@
                 <h1 id="log-in-title">Acessar Conta</h1>
                 <h3 class="extra-light" id="log-in-subtitle">Bem-vindo de volta!</h3>
             </div>
-            <form class="form-direction">
+            <form class="form-direction" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="label-direction">
                     <label class="extra-light" id="log-in-label">E-mail</label>
-                    <input type="email" name="" id="" placeholder="Insira o seu e-mail">
+                    <input type="email" name="" id="" formControlName="email" placeholder="Insira o seu e-mail">
                     
                 
                 </div>
                 <div id="label-options-spacing">
                     <div class="label-direction">
                         <label class="extra-light" id="log-in-label">Senha</label>
-                        <input type="text" name="" id="" placeholder="Insira o seu e-mail">
+                        <input type="text" name="" id="" formControlName="senha" placeholder="Insira o seu e-mail">
                     </div>
                     <div class="options-direction">
-                        <p routerLink="sign-up">Não possui conta? Cadastra-se</p>
+                        <p *ngIf="verificarRotaAtual()==='/log-in'" routerLink="/sign-up">Não possui conta? Cadastra-se</p>
+
+                        <p *ngIf="verificarRotaAtual()==='/'" routerLink="sign-up">Não possui conta? Cadastra-se</p>
+
                         <p>Esqueceu a senha?</p>
                     </div>
                 </div>

@@ -7,6 +7,9 @@ import { adressViewModel } from './view-models/adress-vm';
 import { switchMap } from 'rxjs/operators';
 import { UserViewModel } from './view-models/user-vm';
 import { BlobOptions } from 'buffer';
+import * as CryptoJS from 'crypto-js';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -31,6 +34,8 @@ export class SignUpComponent {
     uf: new FormControl('', Validators.required),
   });
   passwordIsValid: boolean = true;
+  formIsValid: boolean = true;
+
   states:stateViewModel[] = []
   cities:cityViewModel[] = []
   adress:adressViewModel = {city:"", district:"", state:"", street:""}
@@ -50,7 +55,7 @@ export class SignUpComponent {
   isLoading: boolean = false;  // Controla o estado de carregamento
 
 
-  constructor(private service: serviceSignUp) { }
+  constructor(private service: serviceSignUp ,private router: Router) { }
 
   ngOnInit(): void {
     // O ngOnInit é chamado após a inicialização do componente
@@ -68,11 +73,14 @@ export class SignUpComponent {
   onSubmit(){
     console.log("SUBMIT")
     if(this.cadastroForm.valid){
+      this.formIsValid =true
+      this.passwordIsValid = true
+      
       console.log("VALIDO")
       this.isLoading = true
       this.user = {
         nome: this.cadastroForm.value.nome + " " + this.cadastroForm.value.sobrenome,
-        senha: this.cadastroForm.value.senha || "",
+        senha: this.generateHash( this.cadastroForm.value.senha || ""),
         email: this.cadastroForm.value.email || "",
         telefone: this.cadastroForm.value.telefone || "",
         endereco: {
@@ -85,11 +93,12 @@ export class SignUpComponent {
       };
       console.log('Dados enviados:', this.user);
       this.service.createUser(this.user).subscribe({
-        next: (response) => {console.log('Usuário criado com sucesso:', response), this.isLoading=false} ,
+        next: (response) => {console.log('Usuário criado com sucesso:', response), this.isLoading=false, this.router.navigate(['/log-in']);} ,
         error: (err) => console.error('Erro na criação do usuário:', err),
       });
     }else{
       console.log("INVALIDO")
+      this.formIsValid = false;
 
       const senhaControle = this.cadastroForm.get('senha');
       if (senhaControle && senhaControle.invalid) {
@@ -150,5 +159,8 @@ export class SignUpComponent {
       error => {
       }
     );
+  }
+  generateHash(data: string): string {
+    return CryptoJS.SHA256(data).toString(CryptoJS.enc.Hex);
   }
 }

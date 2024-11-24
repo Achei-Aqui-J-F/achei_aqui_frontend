@@ -29,7 +29,7 @@
                         <div class="label-direction">
                             <label class="extra-light" id="sign-in-label">Senha</label>
                             <input type="password" name="" formControlName="senha" id="" placeholder="Crie uma senha">
-                            <p *ngIf="!passwordIsValid" id="passwordIncorrectMessage">A Senha deve conter de 8 a 15 caracteres, números e pelo menos uma letra maiúscula e minúscula</p>
+                            <p *ngIf="!passwordIsValid" id="incorrectMessage">A Senha deve conter de 8 a 15 caracteres, números e pelo menos uma letra maiúscula e minúscula</p>
 
                         </div>
                     </div>
@@ -68,7 +68,12 @@
                     
                 </div>
                 <div id="submit-position">
-                    <p routerLink="">Já possui conta? Faça o log-in</p>
+                    <div>
+                        <p id="incorrectMessage" *ngIf="!formIsValid">Preencha todos os campos corretamente!</p>
+                        <p routerLink="">Já possui conta? Faça o log-in</p>
+                        
+                    </div>
+                    
                     <button *ngIf="!isLoading" id="submit-input" (click)="onSubmit()">Cadastrar</button>
 
   <!-- Botão de carregamento quando isLoading for verdadeiro -->
