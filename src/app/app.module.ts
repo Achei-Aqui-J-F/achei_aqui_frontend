@@ -11,6 +11,7 @@ import { ImaskCEPDirective } from '../directives/imask.cep.directive';
 import { ImaskTelDirective } from '../directives/imask.tel.directive ';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './routesProtection/auth-guard';
+import { NavbarComponent } from './pages/components/navbar/navbar.component';
 
 
 
@@ -21,7 +22,8 @@ import { AuthGuard } from './routesProtection/auth-guard';
     SignUpComponent,
     ImaskCEPDirective,
     ImaskTelDirective,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+#navbar-container{
+    background-color: #2A2C31;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    
+}
+#achei-aqui-logo{
+    height: 70%;
+    margin: 3%;
+}
+ul {
+    list-style-type: none; 
+    padding-left: 0; 
+  }
+#options-list{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+    color: white;
+    font-weight: 350;
+    align-items: center;
+
+}
+#my-perfil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 5%;
+}
+#my-perfil-label{
+    width: 110px;
+    align-items: center;
+    text-align: center;
+    
+}
