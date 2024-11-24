@@ -8,6 +8,7 @@ export interface EnderecoViewModel {
 }
 export interface UserViewModel {
   id?: number;  // O ID pode ser opcional, especialmente se for uma criação
+  imagem?: string;  
   nome: string;
   senha: string;
   email: string;

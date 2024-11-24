@@ -13,4 +13,6 @@ export interface UserViewModel {
   email: string;
   telefone: string;
   endereco: EnderecoViewModel;  // Relacionamento com o EnderecoViewModel
+  imagem?: string;  
+
 }

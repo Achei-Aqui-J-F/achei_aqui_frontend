@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './routesProtection/auth-guard';
 import { NavbarComponent } from './pages/components/navbar/navbar.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 
 
@@ -25,7 +26,8 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
     ImaskTelDirective,
     HomeComponent,
     NavbarComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
