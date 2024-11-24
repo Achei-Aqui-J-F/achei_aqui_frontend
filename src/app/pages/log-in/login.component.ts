@@ -4,6 +4,7 @@ import { serviceLogIn } from './services/service-log-in';
 import { UserViewModel } from './view-models/user-vm';
 import * as CryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
+import { AuthService } from '../../routesProtection/auth-service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent {
   correctLogin: boolean = true;
 
   
-  constructor(private service: serviceLogIn, private router: Router) { }
+  constructor(private service: serviceLogIn, private router: Router, private authService: AuthService) { }
 
   userData:UserViewModel = {
     nome: '',
@@ -43,7 +44,7 @@ export class LoginComponent {
       this.service.getUserByEmail(this.loginForm.value.email||"").subscribe(
         (data: UserViewModel) => {
           this.correctLogin = this.compararHashs(this.loginForm.value.senha||"", data.senha )
-
+          this.authService.login({"email":data.email, "senha":this.loginForm.value.senha||""})
       },
       error => {
         console.error('Erro ao buscar estados:', error);

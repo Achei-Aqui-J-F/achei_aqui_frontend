@@ -9,6 +9,7 @@ import { UserViewModel } from './view-models/user-vm';
 import { BlobOptions } from 'buffer';
 import * as CryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
+import { AuthService } from '../../routesProtection/auth-service';
 
 @Component({
   selector: 'app-sign-up',
@@ -55,7 +56,7 @@ export class SignUpComponent {
   isLoading: boolean = false;  // Controla o estado de carregamento
 
 
-  constructor(private service: serviceSignUp ,private router: Router) { }
+  constructor(private service: serviceSignUp ,private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     // O ngOnInit é chamado após a inicialização do componente
@@ -75,7 +76,7 @@ export class SignUpComponent {
     if(this.cadastroForm.valid){
       this.formIsValid =true
       this.passwordIsValid = true
-      
+
       console.log("VALIDO")
       this.isLoading = true
       this.user = {
@@ -106,7 +107,9 @@ export class SignUpComponent {
       }else{
           this.passwordIsValid = true
       }
+      
     }
+    
     
   }
   onBlurCEP(){
