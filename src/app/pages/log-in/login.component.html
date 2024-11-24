@@ -18,7 +18,7 @@
                 <div id="label-options-spacing">
                     <div class="label-direction">
                         <label class="extra-light" id="log-in-label">Senha</label>
-                        <input type="text" name="" id="" formControlName="senha" placeholder="Insira o seu e-mail">
+                        <input type="password" name="" id="" formControlName="senha" placeholder="Insira o seu e-mail">
                     </div>
                     <div class="options-direction">
                         <p *ngIf="verificarRotaAtual()==='/log-in'" routerLink="/sign-up">Não possui conta? Cadastra-se</p>
@@ -29,6 +29,7 @@
                     </div>
                 </div>
                 <div id="submit-position">
+                    <p id="incorrectMessage" *ngIf="!correctLogin">E-mail ou senha incorretos</p>
                     <input type="submit" id="submit-input">
                 </div>
             </form>

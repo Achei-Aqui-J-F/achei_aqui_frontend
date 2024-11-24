@@ -69,7 +69,9 @@ label{
 #submit-position{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     padding: 20px;
+    align-items: center;
 }
 
 #log-in-title{
@@ -92,4 +94,10 @@ input{
 }
 p{
     cursor: pointer;
+}
+#incorrectMessage{
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-weight: 200;
+    color: brown;
 }

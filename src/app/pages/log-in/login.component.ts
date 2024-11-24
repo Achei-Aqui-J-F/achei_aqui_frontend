@@ -18,6 +18,9 @@ export class LoginComponent {
     senha: new FormControl('',  Validators.required),
   
   });
+  correctLogin: boolean = true;
+
+  
   constructor(private service: serviceLogIn, private router: Router) { }
 
   userData:UserViewModel = {
@@ -37,14 +40,10 @@ export class LoginComponent {
   
   onSubmit(){
     if(this.loginForm.valid){
-      console.log("LOGIN VALIDO")
       this.service.getUserByEmail(this.loginForm.value.email||"").subscribe(
         (data: UserViewModel) => {
-        if(this.compararHashs(this.loginForm.value.senha||"", data.senha )) {
-          console.log("LOGIN CORRETO")
-        }else{
-          console.log("LOGIN INCORRETO")
-        }
+          this.correctLogin = this.compararHashs(this.loginForm.value.senha||"", data.senha )
+
       },
       error => {
         console.error('Erro ao buscar estados:', error);
