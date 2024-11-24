@@ -45,6 +45,7 @@ export class LoginComponent {
         (data: UserViewModel) => {
           this.correctLogin = this.compararHashs(this.loginForm.value.senha||"", data.senha )
           this.authService.login({"email":data.email, "senha":this.loginForm.value.senha||""})
+          this.router.navigate(['/home'])
       },
       error => {
         console.error('Erro ao buscar estados:', error);
