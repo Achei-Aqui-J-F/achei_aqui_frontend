@@ -18,7 +18,8 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('authToken'); // Remove o token
+    localStorage.removeItem('authToken');
+    localStorage.removeItem("userLogged") // Remove o token
   }
   
 

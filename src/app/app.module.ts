@@ -12,6 +12,7 @@ import { ImaskTelDirective } from '../directives/imask.tel.directive ';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './routesProtection/auth-guard';
 import { NavbarComponent } from './pages/components/navbar/navbar.component';
+import { MyPerfilComponent } from './pages/my-perfil/my-perfil.component';
 
 
 
@@ -23,7 +24,8 @@ import { NavbarComponent } from './pages/components/navbar/navbar.component';
     ImaskCEPDirective,
     ImaskTelDirective,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    MyPerfilComponent
   ],
   imports: [
     BrowserModule,

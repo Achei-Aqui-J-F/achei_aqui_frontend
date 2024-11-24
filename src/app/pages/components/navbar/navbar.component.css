@@ -38,5 +38,7 @@ ul {
     width: 110px;
     align-items: center;
     text-align: center;
+    cursor: pointer;
+
     
 }

@@ -1,0 +1,38 @@
+<app-navbar [myPerfilUrl]="''"></app-navbar>
+<div class="my-perfil-container">
+    <img id="perfil-img" src="perfil-image-mock-my-perfil.png" alt="">
+    <div id="my-perfil-informations">
+        <h2>{{userLogged.nome}}</h2>
+        <h3 class="information-subtitle">Informações de contato</h3>
+        <div class="information-position">
+            <strong class="info-label">Telefone: </strong>
+            <p class="info-value">{{userLogged.telefone}}</p>
+        </div>
+        <div class="information-position">
+            <strong class="info-label">E-mail: </strong>
+            <p class="info-value">{{userLogged.email}}</p>
+        </div>
+        <h3 class="information-subtitle">Endereço</h3>
+        <div class="information-position">
+            <strong class="info-label">Estado: </strong>
+            <p class="info-value">{{userLogged.endereco.estado}}</p>
+        </div>
+        <div class="information-position">
+            <strong class="info-label">Cidade: </strong>
+            <p class="info-value">{{userLogged.endereco.cidade}}</p>
+        </div>
+        <div class="information-position">
+            <strong class="info-label">Bairro: </strong>
+            <p class="info-value">{{userLogged.endereco.bairro}}</p>
+        </div>
+        <div class="information-position">
+            <strong class="info-label">Rua: </strong>
+            <p class="info-value">{{userLogged.endereco.rua}}</p>
+        </div>
+        <div class="information-position">
+            <strong class="info-label">CEP: </strong>
+            <p class="info-value">{{userLogged.endereco.cep}}</p>
+        </div>
+    </div>
+</div>
+<hr id="separator-horizontal">
