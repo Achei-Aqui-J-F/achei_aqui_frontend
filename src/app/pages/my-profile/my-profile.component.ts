@@ -4,11 +4,11 @@ import { AuthService } from '../../routesProtection/auth-service';
 import { UserViewModel } from '../log-in/view-models/user-vm';
 import { logInUserViewModel } from '../../routesProtection/log-in-user-vm';
 @Component({
-  selector: 'app-my-perfil',
-  templateUrl: './my-perfil.component.html',
-  styleUrl: './my-perfil.component.css'
+  selector: 'app-my-profile',
+  templateUrl: './my-profile.component.html',
+  styleUrl: './my-profile.component.css'
 })
-export class MyPerfilComponent {
+export class MyProfileComponent {
 
   constructor(private serviceUtils:serviceUtils, private serviceAuth: AuthService){}
   userAuthCache: logInUserViewModel =JSON.parse( localStorage.getItem("authToken") || "")
