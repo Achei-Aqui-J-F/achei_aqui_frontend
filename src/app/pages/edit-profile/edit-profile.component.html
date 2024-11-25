@@ -1,1 +1,83 @@
-<p>edit-profile works!</p>
+<app-navbar [myProfileUrl]="'/my-profile'"></app-navbar>
+<div class="title-position">
+    <p>Voltar</p>
+    <h1>Editar Perfil</h1>
+</div>
+
+<div class="edit-user-container">
+    <div>
+        <img id="my-profile-image"[src]="imageSrc">
+        
+        <div id="input-file-position">
+            <label for="file-input" id="custom-file-label">
+                Selecionar Imagem
+              </label>
+            <input (change)="onFileSelected($event)" type="file" id="file-input" value="Selecionar Imagem">
+        </div>
+    </div>
+
+
+    <form class="form-direction" [formGroup]="cadastroForm">
+        <div class="informations-columns">
+            <div class="informations-direction">
+                
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label">E-mail</label>
+                    <input type="email" name="" formControlName="email" id="" placeholder="Insira o seu e-mail">
+                </div>
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label">Telefone</label>
+                    <input type="text" name="" telImask formControlName="telefone" id="" placeholder="Insira o seu telefone">
+                </div>
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label">CEP</label>
+                    <input type="text" class="CEP-input" cepImask formControlName="cep" name="" id="" placeholder="01234-567" (blur)="onBlurCEP()">
+                </div>
+                
+            </div>
+            <div class="informations-direction">
+                
+              
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label">UF</label>
+    
+                    <select class="extra-light" id="sign-in-label" (change)="onSelectCityChange($event)" formControlName="uf">
+                        <option value="" disabled selected hidden>Selecione</option>
+                        <option *ngFor="let state of states" value="{{state.value}}">{{state.view}}</option>
+                    </select>
+                </div>
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label" >Cidade</label>
+                    <select class="extra-light" id="sign-in-label"  formControlName="cidade">
+                        <option value="" disabled selected hidden>Selecione</option>
+                        <option  *ngFor="let city of cities" value="{{city.value}}">{{city.value}}</option>
+                    </select>                        
+                </div>
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label">Bairro</label>
+                    <input type="text" name="" id="" formControlName="bairro" placeholder="Insira o nome do seu bairro">
+                </div>
+                <div class="label-direction">
+                    <label class="extra-light" id="sign-in-label">Rua</label>
+                    <input type="text" name="" id="" formControlName="rua" placeholder="Insira o nome da sua rua">
+                </div>
+    
+                
+            </div>
+            
+        </div>
+        <div id="submit-position">
+            <div>
+                <p id="incorrectMessage" *ngIf="!formIsValid">Preencha todos os campos corretamente!</p>
+        
+            </div>
+            
+            <button *ngIf="" id="submit-input" (click)="onSubmit()">Cadastrar</button>
+    
+    
+    
+        </div>
+    
+    </form>
+</div>
+

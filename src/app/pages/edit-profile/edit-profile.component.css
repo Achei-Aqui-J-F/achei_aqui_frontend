@@ -1,0 +1,212 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+}
+#sign-up-background{
+    width: 40vw;
+    height: 100vh;
+}
+#background-sign-up-form{
+    display: flex;
+    flex-direction: row;
+}
+#container-sign-up{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 35px;
+}
+#label-options-spacing{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+}
+.titles-direction{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+.extra-light{
+    font-weight: 200;
+}
+.form-direction{
+    display: flex;
+    flex-direction: column;
+    height: 520px;
+    justify-content: space-between;
+}
+.label-direction{
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    justify-content: space-between;
+
+}
+.informations-direction{
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    justify-content: space-between;
+
+}
+
+.options-direction{
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+    justify-content: space-between;
+}
+label{
+    display: block;
+}
+/* Estilização do container */
+#input-file-position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: end;
+    margin-top: 40px;
+  }
+  
+  /* Estilização do label personalizado que substitui o input */
+  #custom-file-label {
+    display: inline-block;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #2A2C31;
+    color: #FFFEDF;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    height: 40px;
+    line-height: 24px; /* Centraliza o texto no label */
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Hover no botão */
+  #custom-file-label:hover {
+    background-color: #3A3C41;
+    transform: scale(1.02);
+  }
+  
+  /* Foco no botão */
+  #custom-file-label:focus {
+    outline: 2px solid #FFFEDF;
+  }
+  
+  /* Tornar o input invisível */
+  #file-input {
+    display: none;
+  }
+  
+.edit-user-container{
+    display: flex;
+    flex-direction:row;
+    
+}
+#sign-in-title{
+    font-size: 40px;
+}
+#sign-in-subtitle{
+    font-size: 25px;
+}
+#sign-in-label{
+    font-size: 20px;
+}
+.CEP-input{
+    width: 80px;
+}
+.informations-columns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 500px;
+    align-items: center;
+}
+input{
+    border: none; 
+    border-bottom: 1px solid #000;
+    outline: none; 
+    padding: 8px; 
+    font-size: 16px;
+    font-weight: 200;
+    width: 200px;
+}
+select{
+    border: none; 
+    border-bottom: 1px solid #000;
+    outline: none; 
+    padding: 8px; 
+    font-size: 10px;
+    font-weight: 200;
+    width: 200px;
+}
+option{
+    border: none; 
+    border-bottom: 1px solid #000;
+    outline: none; 
+    padding: 8px; 
+    font-size: 10px;
+    font-weight: 200;
+    width: 200px;
+}
+.edit-user-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 25px;
+}
+
+
+p{
+    cursor: pointer;
+}
+.title-position{
+    margin: 3%;
+}
+#incorrectMessage{
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-weight: 200;
+    color: brown;
+}
+#my-profile-image{
+    height: 300px;
+    width: 300px;
+}
+
+.loader {
+    width: 23px;
+    height: 23px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
