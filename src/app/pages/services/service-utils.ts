@@ -16,6 +16,7 @@ export class serviceUtils{
         this.serviceLogIn.getUserByEmail(email).subscribe(
             (data: UserViewModel) => {
                 localStorage.setItem( "userLogged", JSON.stringify(data))
+                console.log(data)
                 return data
             },
             error => {

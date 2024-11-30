@@ -1,6 +1,6 @@
 <app-navbar [myProfileUrl]="''"></app-navbar>
 <div class="my-perfil-container">
-    <img id="perfil-img" src="perfil-image-mock-my-perfil.png" alt="">
+    <img id="perfil-img" [src]="urlSrc" alt="">
     <div id="my-perfil-informations">
         <h2>{{userLogged.nome}}</h2>
         <h3 class="information-subtitle">Informações de contato</h3>
@@ -35,6 +35,8 @@
         </div>
         <div id="submit-position">
             <button id="submit-input" (click)="editDetails()">Editar</button>
+            <button id="logout-input" (click)="sairConta()">Sair da Conta</button>
+
         </div>
 
     </div>

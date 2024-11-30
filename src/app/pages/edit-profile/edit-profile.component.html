@@ -1,6 +1,6 @@
 <app-navbar [myProfileUrl]="'/my-profile'"></app-navbar>
 <div class="title-position">
-    <p>Voltar</p>
+    <p routerLink="/my-profile">Voltar</p>
     <h1>Editar Perfil</h1>
 </div>
 
@@ -17,7 +17,7 @@
     </div>
 
 
-    <form class="form-direction" [formGroup]="cadastroForm">
+    <form class="form-direction" [formGroup]="cadastroForm" >
         <div class="informations-columns">
             <div class="informations-direction">
                 
@@ -72,7 +72,7 @@
         
             </div>
             
-            <button *ngIf="" id="submit-input" (click)="onSubmit()">Cadastrar</button>
+            <button  id="submit-input" (click)="onSubmit()">Editar</button>
     
     
     

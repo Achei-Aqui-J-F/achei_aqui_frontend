@@ -31,13 +31,14 @@ export class AuthService {
     };
   
     return new Promise<boolean>((resolve, reject) => {
+      console.log(this.token.email)
       this.serviceLogIn.getUserByEmail(this.token.email).subscribe(
         (data: UserViewModel) => {
           const isValid = this.compararHashs(this.token.senha, data.senha);
           resolve(isValid); // Resolve a Promise com o resultado de compararHashs
         },
         error => {
-          console.error('Erro ao buscar estados:', error);
+          console.error('Erro:', error);
           reject(false); // Reject a Promise em caso de erro
         }
       );
@@ -50,7 +51,9 @@ export class AuthService {
   // Função para comparar o hash gerado com o hash armazenado
   compararHashs(senha: string, hashArmazenado: string): boolean {
     const hashGerado = this.gerarHash(senha); // Gera o hash da senha recebida
+    console.log("HASHS =")
     console.log(hashGerado, hashArmazenado)
+    
     return hashGerado === hashArmazenado; // Compara o hash gerado com o armazenado
   }
 }

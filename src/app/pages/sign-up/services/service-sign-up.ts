@@ -56,7 +56,7 @@ export class serviceSignUp{
                   value: cidade.nome,
  
                 }))
-                .sort((a, b) => a.value.localeCompare(b.value))  // Ordenando pelo nome (view) em ordem alfabética
+                .sort((a, b) => a.value.localeCompare(b.value))
             )
           );
       

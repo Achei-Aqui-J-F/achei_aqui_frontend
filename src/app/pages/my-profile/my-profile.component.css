@@ -39,6 +39,7 @@
 }
 #perfil-img{
     height: 300px;
+    width: 300px;
 }
 @media screen and (max-width: 800px) {
     .my-perfil-container{
@@ -79,11 +80,30 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
     height: 40px;
     cursor: pointer;
+    margin-right: 40px;
+    
+}
+#logout-input{
+    border-bottom: 1px solid #000;
+    
+    outline: none; 
+    padding: 8px; 
+    font-size: 16px;
+    font-weight: 200;
+    background-color: #5A2E2E;
+    border: none;
+    color: #FFFEDF;
+    font-weight: 400;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    height: 40px;
+    cursor: pointer;
     
 }
 #submit-position{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     width: 150%;

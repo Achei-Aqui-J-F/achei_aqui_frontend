@@ -26,20 +26,27 @@ export class MyProfileComponent {
       cidade: '',
     }
   };
+  urlSrc: string = this.userLogged.imagem || "perfil-image-mock-my-perfil.png"
   ngOnInit(){
     if(this.serviceUtils.itemIsNull("userLogged")){
-      console.log("Não Existe Cachê")
       this.serviceUtils.setUserLogged(this.userAuthCache.email)
     }else{
-      console.log("Existe Cachê")
+      this.serviceUtils.setUserLogged(this.userAuthCache.email)
       this.userLogged = this.serviceUtils.getUserLogged()
 
     }
+    this.urlSrc = this.userLogged.imagem ||  "perfil-image-mock-my-perfil.png"
+
+
     // console.log("GETUSERLOGGED : " + this.serviceUtils.getUserLogged(this.userAuthCache.email))
     
   }
   editDetails(){
     this.router.navigate(['my-profile/edit-profile'])
   }
-
+  sairConta(){
+    localStorage.removeItem("userLogged")
+    this.serviceAuth.logout()
+    this.router.navigate(['/log-in'])
+  }
 }
